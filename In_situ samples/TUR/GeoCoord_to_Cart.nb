@@ -1,0 +1,674 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     26880,        666]
+NotebookOptionsPosition[     25217,        631]
+NotebookOutlinePosition[     25643,        648]
+CellTagsIndexPosition[     25600,        645]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Read", " ", "data", " ", "from", " ", "Excel", " ", "file"}], 
+   "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"latitudesc", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\</Users/rokoandricevic/Dropbox/Matematica \
+files/Data/Mjerenja_21-22.xlsx\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Data\>\"", ",", "3", ",", 
+       RowBox[{"Range", "[", 
+        RowBox[{"37", ",", "47"}], "]"}], ",", "3"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"longitudesc", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\</Users/rokoandricevic/Dropbox/Matematica \
+files/Data/Mjerenja_21-22.xlsx\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Data\>\"", ",", "3", ",", 
+       RowBox[{"Range", "[", 
+        RowBox[{"37", ",", "47"}], "]"}], ",", "4"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"attributes", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\</Users/rokoandricevic/Dropbox/Matematica \
+files/Data/Mjerenja_21-22.xlsx\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Data\>\"", ",", "3", ",", 
+       RowBox[{"Range", "[", 
+        RowBox[{"37", ",", "47"}], "]"}], ",", "6"}], "}"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"latitudes", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ToExpression", "[", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{
+        RowBox[{"ToString", "[", "#", "]"}], ",", 
+        RowBox[{"\"\<,\>\"", "->", "\"\<.\>\""}]}], "]"}], "]"}], "&"}], "/@",
+     "latitudesc"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"longitudes", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ToExpression", "[", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{
+        RowBox[{"ToString", "[", "#", "]"}], ",", 
+        RowBox[{"\"\<,\>\"", "->", "\"\<.\>\""}]}], "]"}], "]"}], "&"}], "/@",
+     "longitudesc"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "latitudes", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "longitudes", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", "attributes", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+   "\"\</Users/rokoandricevic/Dropbox/Python_scripts/CNN/Multi_TUR/Data_TUR/\
+April22DataCDOM.csv\>\"", ",", 
+    RowBox[{"Transpose", "[", 
+     RowBox[{"{", 
+      RowBox[{"latitudes", ",", "longitudes", ",", "attributes"}], "}"}], 
+     "]"}], ",", "\"\<CSV\>\""}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{
+  3.9476781280861998`*^9, 3.947678185951528*^9, {3.947849680107271*^9, 
+   3.9478496977049522`*^9}, {3.947849844805011*^9, 3.9478498474656057`*^9}, {
+   3.947849935160421*^9, 3.947849941897054*^9}, {3.948202830815233*^9, 
+   3.948202838248384*^9}, {3.948385434945689*^9, 3.9483854682141247`*^9}, {
+   3.985691452987807*^9, 3.985691638667854*^9}, {3.985691727226882*^9, 
+   3.985691752855914*^9}, {3.985692047896188*^9, 3.985692065822356*^9}, {
+   3.985692138866148*^9, 3.985692154216619*^9}, {3.985692209060377*^9, 
+   3.9856922308947477`*^9}, {3.985695841739455*^9, 3.985695936823538*^9}, {
+   3.985695977715504*^9, 3.98569599655933*^9}, 3.985696036758236*^9, {
+   3.985696115815517*^9, 3.9856961189802938`*^9}, {3.98569630544879*^9, 
+   3.985696340291744*^9}, {3.985696377313617*^9, 3.985696462924257*^9}, {
+   3.98576157339612*^9, 3.985761581003763*^9}, {3.985761630063921*^9, 
+   3.985761630672995*^9}, {3.985773850268457*^9, 3.98577386859978*^9}, {
+   3.985773929163843*^9, 3.985773934113216*^9}, {3.985868618940137*^9, 
+   3.985868684333315*^9}, {3.985869354187057*^9, 3.9858694002415123`*^9}, {
+   3.985869473650731*^9, 3.985869479737082*^9}, {3.985869612345201*^9, 
+   3.985869652674946*^9}, {3.9858697214429398`*^9, 3.9858697503853283`*^9}, {
+   3.9858698202905188`*^9, 3.985869827208128*^9}},
+ CellLabel->
+  "In[595]:=",ExpressionUUID->"0191d927-b152-4ff7-9bc6-2a505614fe58"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "43.5346`", ",", "43.5346`", ",", "43.5346`", ",", "43.5348`", ",", 
+   "43.5348`", ",", "43.5345`", ",", "43.5347`", ",", "43.5343`", ",", 
+   "43.5347`", ",", "43.534`", ",", "43.5346`"}], "}"}]], "Print",
+ CellChangeTimes->{
+  3.948202857323347*^9, {3.948385444880084*^9, 3.948385473823373*^9}, 
+   3.98569165105722*^9, 3.985691757115261*^9, 3.9856920742935038`*^9, 
+   3.985692158550399*^9, 3.985692242272847*^9, 3.985696011640293*^9, 
+   3.985696055365031*^9, 3.985696128805745*^9, 3.9856963497365417`*^9, 
+   3.985696416977253*^9, 3.985696466572974*^9, 3.985761636733309*^9, 
+   3.985773881764395*^9, 3.98577393808223*^9, 3.9858687806227617`*^9, 
+   3.985869424797287*^9, 3.985869483967415*^9, 3.9858695591955957`*^9, 
+   3.985869669498488*^9, 3.985869764969398*^9, 3.9858698329158163`*^9},
+ CellLabel->
+  "During evaluation of \
+In[595]:=",ExpressionUUID->"68175890-9f63-4589-80f5-8a8f62e34e7b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "16.4739`", ",", "16.4729342`", ",", "16.4720836`", ",", "16.4712882`", ",",
+    "16.4708432`", ",", "16.4698035`", ",", "16.469663`", ",", "16.4693`", 
+   ",", "16.4691937`", ",", "16.4679`", ",", "16.4608`"}], "}"}]], "Print",
+ CellChangeTimes->{
+  3.948202857323347*^9, {3.948385444880084*^9, 3.948385473823373*^9}, 
+   3.98569165105722*^9, 3.985691757115261*^9, 3.9856920742935038`*^9, 
+   3.985692158550399*^9, 3.985692242272847*^9, 3.985696011640293*^9, 
+   3.985696055365031*^9, 3.985696128805745*^9, 3.9856963497365417`*^9, 
+   3.985696416977253*^9, 3.985696466572974*^9, 3.985761636733309*^9, 
+   3.985773881764395*^9, 3.98577393808223*^9, 3.9858687806227617`*^9, 
+   3.985869424797287*^9, 3.985869483967415*^9, 3.9858695591955957`*^9, 
+   3.985869669498488*^9, 3.985869764969398*^9, 3.985869832916304*^9},
+ CellLabel->
+  "During evaluation of \
+In[595]:=",ExpressionUUID->"dbc95848-b750-4744-b030-6cb09acedd36"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2.063372093023256`", ",", "2.2897727272727275`", ",", 
+   "1.7646666666666666`", ",", "1.4437500000000003`", ",", 
+   "1.751702127659575`", ",", "1.4603124999999997`", ",", 
+   "2.112459016393443`", ",", "1.8232075471698106`", ",", 
+   "2.3018604651162793`", ",", "2.268888888888889`", ",", 
+   "2.070263157894737`"}], "}"}]], "Print",
+ CellChangeTimes->{
+  3.948202857323347*^9, {3.948385444880084*^9, 3.948385473823373*^9}, 
+   3.98569165105722*^9, 3.985691757115261*^9, 3.9856920742935038`*^9, 
+   3.985692158550399*^9, 3.985692242272847*^9, 3.985696011640293*^9, 
+   3.985696055365031*^9, 3.985696128805745*^9, 3.9856963497365417`*^9, 
+   3.985696416977253*^9, 3.985696466572974*^9, 3.985761636733309*^9, 
+   3.985773881764395*^9, 3.98577393808223*^9, 3.9858687806227617`*^9, 
+   3.985869424797287*^9, 3.985869483967415*^9, 3.9858695591955957`*^9, 
+   3.985869669498488*^9, 3.985869764969398*^9, 3.985869832916829*^9},
+ CellLabel->
+  "During evaluation of \
+In[595]:=",ExpressionUUID->"aca2f371-6e35-4413-8a47-f2bbd9bd3fbe"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Define", " ", "the", " ", "origin", " ", "coordinates"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"originLat", "=", "43.5"}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{"Example", " ", "origin", " ", "latitude"}], "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"originLon", "=", "16.4"}], ";"}], "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Function", " ", "to", " ", "convert", " ", 
+     RowBox[{"lat", "/", "lon"}], " ", "to", " ", "Cartesian", " ", 
+     "coordinates"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"cartesianCoordinates", "[", 
+     RowBox[{"lat_", ",", "lon_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"originGeo", "=", 
+         RowBox[{"GeoPosition", "[", 
+          RowBox[{"{", 
+           RowBox[{"originLat", ",", "originLon"}], "}"}], "]"}]}], ",", 
+        RowBox[{"pointGeo", "=", 
+         RowBox[{"GeoPosition", "[", 
+          RowBox[{"{", 
+           RowBox[{"lat", ",", "lon"}], "}"}], "]"}]}], ",", "distance"}], 
+       "}"}], ",", 
+      RowBox[{
+       RowBox[{"distance", "=", 
+        RowBox[{"GeoDistance", "[", 
+         RowBox[{"originGeo", ",", "pointGeo"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"(*", 
+         RowBox[{
+         "Assuming", " ", "North", " ", "is", " ", "positive", " ", "Y", " ", 
+          "and", " ", "East", " ", "is", " ", "positive", " ", "X"}], "*)"}], 
+        
+        RowBox[{
+         RowBox[{"distance", "*", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"GeoDirection", "[", 
+            RowBox[{"originGeo", ",", "pointGeo"}], "]"}], "]"}]}], ",", 
+         RowBox[{"distance", "*", 
+          RowBox[{"Cos", "[", 
+           RowBox[{"GeoDirection", "[", 
+            RowBox[{"originGeo", ",", "pointGeo"}], "]"}], "]"}]}]}], 
+        "}"}]}]}], "]"}]}], "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Convert", " ", "coordinates"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"cartesianCoords", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"cartesianCoordinates", "[", 
+        RowBox[{
+         RowBox[{"latitudes", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], ",", 
+         RowBox[{"longitudes", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "latitudes", "]"}]}], "}"}]}], "]"}]}], ";"}],
+    "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Create", " ", "a", " ", "list", " ", "of", " ", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y", ",", "attribute"}], "}"}], " ", "tuples"}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"dataWithCartesian", "=", 
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"cartesianCoords", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "1"}], "]"}], "]"}], ",", 
+        RowBox[{"cartesianCoords", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", "attributes"}], "}"}],
+       "]"}]}], ";"}], "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Print", " ", "the", " ", "results"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "Print", "[", "\"\<Cartesian Coordinates and Attributes:\>\"", "]"}], 
+    ";"}], "\n", "\"\<Cartesian Coordinates and Attributes:\>\"", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"TableForm", "[", 
+      RowBox[{"dataWithCartesian", ",", 
+       RowBox[{"TableHeadings", "->", 
+        RowBox[{"{", 
+         RowBox[{"{", 
+          RowBox[{"\"\<X\>\"", ",", "\"\<Y\>\"", ",", "\"\<Attribute\>\""}], 
+          "}"}], "}"}]}]}], "]"}], "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.9476781280861998`*^9, 3.947678185951528*^9, {3.947849680107271*^9, 
+   3.9478496977049522`*^9}, {3.947849844805011*^9, 3.9478498474656057`*^9}, {
+   3.947849935160421*^9, 3.947849941897054*^9}, {3.948202830815233*^9, 
+   3.94820285025248*^9}},
+ CellLabel->
+  "In[605]:=",ExpressionUUID->"330700aa-539e-4548-90ee-8d3a875184e7"],
+
+Cell[BoxData["\<\"Cartesian Coordinates and Attributes:\"\>"], "Print",
+ CellChangeTimes->{
+  3.945784709186631*^9, 3.945786704477946*^9, 3.945830833204708*^9, 
+   3.947597009538421*^9, {3.947597182806507*^9, 3.947597201893462*^9}, 
+   3.947597249938953*^9, 3.947599148226882*^9, 3.947599191297736*^9, 
+   3.94759927252159*^9, 3.9476781388075237`*^9, 3.947678187475635*^9, 
+   3.947849735894121*^9, 3.947849854327384*^9, 3.947849949746396*^9, 
+   3.948202913780811*^9, 3.948385514886504*^9, 3.985691988101948*^9, 
+   3.985692089141876*^9, 3.985692176684789*^9, 3.985692257905307*^9, 
+   3.985761649140946*^9, 3.9857739717425838`*^9, 3.9858688576758223`*^9, 
+   3.9858694442559137`*^9, 3.98586949115768*^9, 3.985869575468336*^9, 
+   3.98586967489884*^9, 3.985869771046582*^9, 3.9858698373762407`*^9},
+ CellLabel->
+  "During evaluation of \
+In[605]:=",ExpressionUUID->"82be58cc-f8dc-423e-b0ed-4d4b485cd8d2"],
+
+Cell[BoxData["\<\"Cartesian Coordinates and Attributes:\"\>"], "Output",
+ CellChangeTimes->{{3.947597182807016*^9, 3.947597201893923*^9}, 
+   3.947597249940346*^9, 3.9475991482281036`*^9, 3.947599191299189*^9, 
+   3.947599272523036*^9, 3.947678138808793*^9, 3.947678187476993*^9, 
+   3.947849735902384*^9, 3.94784985432873*^9, 3.947849949747684*^9, 
+   3.948202913791597*^9, 3.948385514887001*^9, 3.985691988102335*^9, 
+   3.985692089142323*^9, 3.985692176685288*^9, 3.985692257906454*^9, 
+   3.98576164914147*^9, 3.985773971743135*^9, 3.985868857678026*^9, 
+   3.9858694442561903`*^9, 3.985869491158169*^9, 3.985869575468863*^9, 
+   3.985869674899338*^9, 3.985869771046906*^9, 3.985869837376899*^9},
+ CellLabel->
+  "Out[611]=",ExpressionUUID->"2807f4e0-a6f9-448c-b5dc-8dc8aa111617"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      TagBox["\<\"X\"\>",
+       HoldForm], 
+      TemplateBox[{
+       "5.973372031511643`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], 
+      TemplateBox[{
+       "3.8468098791975303`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], "2.063372093023256`"},
+     {
+      TagBox["\<\"Y\"\>",
+       HoldForm], 
+      TemplateBox[{
+       "5.895305979809407`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], 
+      TemplateBox[{
+       "3.846741007418824`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], "2.2897727272727275`"},
+     {
+      TagBox["\<\"Attribute\"\>",
+       HoldForm], 
+      TemplateBox[{
+       "5.826551595657131`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], 
+      TemplateBox[{
+       "3.8466811009710775`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], "1.7646666666666666`"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      TemplateBox[{
+       "5.76224001282772`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], 
+      TemplateBox[{
+       "3.868846345049324`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], "1.4437500000000003`"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      TemplateBox[{
+       "5.726270579117878`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], 
+      TemplateBox[{
+       "3.86881562824565`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], "1.751702127659575`"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      TemplateBox[{
+       "5.642259395876072`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], 
+      TemplateBox[{
+       "3.83541367045455`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], "1.4603124999999997`"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      TemplateBox[{
+       "5.630884092891434`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], 
+      TemplateBox[{
+       "3.857624780918538`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], "2.112459016393443`"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      TemplateBox[{
+       "5.60157970195105`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], 
+      TemplateBox[{
+       "3.813159029740307`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], "1.8232075471698106`"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      TemplateBox[{
+       "5.592950422311355`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], 
+      TemplateBox[{
+       "3.8575931330971502`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], "2.3018604651162793`"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      TemplateBox[{
+       "5.488443702269748`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], 
+      TemplateBox[{
+       "3.7797348069881487`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], "2.268888888888889`"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      TemplateBox[{
+       "4.9144930303438`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], 
+      TemplateBox[{
+       "3.8459529089030395`", "\"km\"", "kilometers", "\"Kilometers\""},
+       "Quantity"], "2.070263157894737`"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxDividers->{
+     "Columns" -> {False, True, {False}, False}, "Rows" -> {{False}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}],
+   {OutputFormsDump`HeadedRows, None}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, TableHeadings -> {{"X", "Y", "Attribute"}}]]]], "Print",
+ CellChangeTimes->{
+  3.945784709186631*^9, 3.945786704477946*^9, 3.945830833204708*^9, 
+   3.947597009538421*^9, {3.947597182806507*^9, 3.947597201893462*^9}, 
+   3.947597249938953*^9, 3.947599148226882*^9, 3.947599191297736*^9, 
+   3.94759927252159*^9, 3.9476781388075237`*^9, 3.947678187475635*^9, 
+   3.947849735894121*^9, 3.947849854327384*^9, 3.947849949746396*^9, 
+   3.948202913780811*^9, 3.948385514886504*^9, 3.985691988101948*^9, 
+   3.985692089141876*^9, 3.985692176684789*^9, 3.985692257905307*^9, 
+   3.985761649140946*^9, 3.9857739717425838`*^9, 3.9858688576758223`*^9, 
+   3.9858694442559137`*^9, 3.98586949115768*^9, 3.985869575468336*^9, 
+   3.98586967489884*^9, 3.985869771046582*^9, 3.985869837377699*^9},
+ CellLabel->
+  "During evaluation of \
+In[605]:=",ExpressionUUID->"c3be0209-671f-4ffc-a6e9-a1853529e5f2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Extract", " ", "X"}], ",", "Y", ",", 
+    RowBox[{"and", " ", "attribute", " ", "columns"}]}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"x", "=", 
+    RowBox[{"dataWithCartesian", "[", 
+     RowBox[{"[", 
+      RowBox[{"All", ",", "1"}], "]"}], "]"}]}], "\n", 
+   RowBox[{"y", "=", 
+    RowBox[{"dataWithCartesian", "[", 
+     RowBox[{"[", 
+      RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "\n", 
+   RowBox[{"attributes", "=", 
+    RowBox[{"dataWithCartesian", "[", 
+     RowBox[{"[", 
+      RowBox[{"All", ",", "3"}], "]"}], "]"}]}], "\n", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+     "\"\</Users/rokoandricevic/Dropbox/Python_scripts/CNN/Multi_TUR/Data_TUR/\
+April22DataCart.csv\>\"", ",", 
+      RowBox[{"Transpose", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"QuantityMagnitude", "[", "x", "]"}], ",", 
+         RowBox[{"QuantityMagnitude", "[", "y", "]"}], ",", "attributes"}], 
+        "}"}], "]"}], ",", "\"\<CSV\>\""}], "]"}], ";"}], "\n", 
+   RowBox[{"Dimensions", "[", "dataWithCartesian", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.945785558368695*^9, 3.945785581515761*^9}, 
+   3.945785635161124*^9, 3.9858696932406063`*^9, {3.985869755787521*^9, 
+   3.985869759200492*^9}},
+ CellLabel->
+  "In[613]:=",ExpressionUUID->"1543197d-a857-4235-a412-176878bec59f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{
+    "5.973372031511643`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "5.895305979809407`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "5.826551595657131`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{"5.76224001282772`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "5.726270579117878`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "5.642259395876072`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "5.630884092891434`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{"5.60157970195105`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "5.592950422311355`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "5.488443702269748`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{"4.9144930303438`", "\"km\"", "kilometers", "\"Kilometers\""},
+    
+    "Quantity"]}], "}"}]], "Output",
+ CellChangeTimes->{3.94767836080344*^9, 3.947678421721202*^9, 
+  3.947849907188305*^9, 3.9478499680126257`*^9, 3.985692003484487*^9, 
+  3.985692121214772*^9, 3.9856921961056*^9, 3.98569227725115*^9, 
+  3.985761677460732*^9, 3.9857739861052437`*^9, 3.985868874639735*^9, 
+  3.985869507058419*^9, 3.985869587489675*^9, 3.9858696978090963`*^9, 
+  3.985869775999522*^9, 3.985869842879694*^9},
+ CellLabel->
+  "Out[613]=",ExpressionUUID->"0a53405c-975f-4fd7-b7fa-60e93c2effc8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{
+    "3.8468098791975303`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "3.846741007418824`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "3.8466811009710775`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "3.868846345049324`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{"3.86881562824565`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{"3.83541367045455`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "3.857624780918538`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "3.813159029740307`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "3.8575931330971502`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "3.7797348069881487`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "3.8459529089030395`", "\"km\"", "kilometers", "\"Kilometers\""},
+    "Quantity"]}], "}"}]], "Output",
+ CellChangeTimes->{3.94767836080344*^9, 3.947678421721202*^9, 
+  3.947849907188305*^9, 3.9478499680126257`*^9, 3.985692003484487*^9, 
+  3.985692121214772*^9, 3.9856921961056*^9, 3.98569227725115*^9, 
+  3.985761677460732*^9, 3.9857739861052437`*^9, 3.985868874639735*^9, 
+  3.985869507058419*^9, 3.985869587489675*^9, 3.9858696978090963`*^9, 
+  3.985869775999522*^9, 3.985869842881555*^9},
+ CellLabel->
+  "Out[614]=",ExpressionUUID->"6155500c-a8ad-40c4-a818-2ea510e889fa"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2.063372093023256`", ",", "2.2897727272727275`", ",", 
+   "1.7646666666666666`", ",", "1.4437500000000003`", ",", 
+   "1.751702127659575`", ",", "1.4603124999999997`", ",", 
+   "2.112459016393443`", ",", "1.8232075471698106`", ",", 
+   "2.3018604651162793`", ",", "2.268888888888889`", ",", 
+   "2.070263157894737`"}], "}"}]], "Output",
+ CellChangeTimes->{3.94767836080344*^9, 3.947678421721202*^9, 
+  3.947849907188305*^9, 3.9478499680126257`*^9, 3.985692003484487*^9, 
+  3.985692121214772*^9, 3.9856921961056*^9, 3.98569227725115*^9, 
+  3.985761677460732*^9, 3.9857739861052437`*^9, 3.985868874639735*^9, 
+  3.985869507058419*^9, 3.985869587489675*^9, 3.9858696978090963`*^9, 
+  3.985869775999522*^9, 3.985869842882999*^9},
+ CellLabel->
+  "Out[615]=",ExpressionUUID->"64db4e98-c9f6-4b24-901f-c321c508ca17"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"11", ",", "3"}], "}"}]], "Output",
+ CellChangeTimes->{3.94767836080344*^9, 3.947678421721202*^9, 
+  3.947849907188305*^9, 3.9478499680126257`*^9, 3.985692003484487*^9, 
+  3.985692121214772*^9, 3.9856921961056*^9, 3.98569227725115*^9, 
+  3.985761677460732*^9, 3.9857739861052437`*^9, 3.985868874639735*^9, 
+  3.985869507058419*^9, 3.985869587489675*^9, 3.9858696978090963`*^9, 
+  3.985869775999522*^9, 3.985869842883613*^9},
+ CellLabel->
+  "Out[617]=",ExpressionUUID->"2e014939-45af-4352-950a-eb7ba6d76bf3"]
+}, Open  ]]
+},
+WindowSize->{892, 908},
+WindowMargins->{{8, Automatic}, {Automatic, 5}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"2fca12c9-24e8-405c-9af9-38591d8c2161"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 3976, 96, 662, "Input",ExpressionUUID->"0191d927-b152-4ff7-9bc6-2a505614fe58"],
+Cell[CellGroupData[{
+Cell[4581, 122, 944, 17, 54, "Print",ExpressionUUID->"68175890-9f63-4589-80f5-8a8f62e34e7b"],
+Cell[5528, 141, 963, 17, 54, "Print",ExpressionUUID->"dbc95848-b750-4744-b030-6cb09acedd36"],
+Cell[6494, 160, 1071, 20, 54, "Print",ExpressionUUID->"aca2f371-6e35-4413-8a47-f2bbd9bd3fbe"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7614, 186, 4103, 108, 584, "Input",ExpressionUUID->"330700aa-539e-4548-90ee-8d3a875184e7"],
+Cell[11720, 296, 905, 14, 29, "Print",ExpressionUUID->"82be58cc-f8dc-423e-b0ed-4d4b485cd8d2"],
+Cell[12628, 312, 783, 11, 42, "Output",ExpressionUUID->"2807f4e0-a6f9-448c-b5dc-8dc8aa111617"],
+Cell[13414, 325, 5530, 146, 293, "Print",ExpressionUUID->"c3be0209-671f-4ffc-a6e9-a1853529e5f2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18981, 476, 1384, 36, 272, "Input",ExpressionUUID->"1543197d-a857-4235-a412-176878bec59f"],
+Cell[20368, 514, 1710, 41, 75, "Output",ExpressionUUID->"0a53405c-975f-4fd7-b7fa-60e93c2effc8"],
+Cell[22081, 557, 1717, 41, 75, "Output",ExpressionUUID->"6155500c-a8ad-40c4-a818-2ea510e889fa"],
+Cell[23801, 600, 851, 16, 69, "Output",ExpressionUUID->"64db4e98-c9f6-4b24-901f-c321c508ca17"],
+Cell[24655, 618, 546, 10, 42, "Output",ExpressionUUID->"2e014939-45af-4352-950a-eb7ba6d76bf3"]
+}, Open  ]]
+}
+]
+*)
+
