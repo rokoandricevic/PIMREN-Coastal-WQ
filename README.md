@@ -1,17 +1,31 @@
-**Master_pimren.py**
-The provided Python script successfully implements the core mechanics of the PIMREN framework described in the manuscript: A Physics-Informed Multi-Regime Ensemble U-Net Framework for Satellite-Based Water Quality Inversion: Bridging Scale Gaps and Seasonal Non-Stationarity. The Zenodo DOI 10.5281/zenodo.20184062 contains necessary input files together with 4000 realizations for properly executing the Master_pimren.py script.
+PIMREN: Physics-Informed Multi-Regime Ensemble U-Net
+This repository provides the official implementation of the PIMREN framework as described in:
 
-11th-Channel Logic: The architecture is designed to accept an 11-channel input tensor, where the final channel serves as the regime-dependent modulator.
+"A Physics-Informed Multi-Regime Ensemble U-Net Framework for Satellite-Based Water Quality Inversion: Bridging Scale Gaps and Seasonal Non-Stationarity"
 
-Physics-Informed Loss: The script defines the total loss function as the sum of empirical data loss and the seasonal physical penalty $\lambda(s)$. This ensures the model adheres to established bio-optical laws even when satellite signals are noisy.
+Project Overview
+The PIMREN (Physics-Informed Multi-Regime Ensemble U-Net) framework is designed to resolve the data-scarcity bottleneck in coastal water quality monitoring. It bridges the gap between centimeter-scale in situ observations and decameter-scale Sentinel-2 pixels using a stochastic scaling bridge.
 
-Ensemble Integration: The code is structured to facilitate a 5-member ensemble, allowing you to calculate the predictive mean and the coefficient of variation (CV).
+Data Availability (Zenodo)
+Due to file size constraints, the training and inference tensors are archived on Zenodo:
+DOI: 10.5281/zenodo.20184062
 
-Epistemic Quality Constraint: By generating CV maps, the script provides the necessary tools to implement the automated quality filter or "blackout" for unreliable spectral states.
+The Zenodo archive contains:
+- & outputs.bin: The Master Dataset (4,000 realizations).
+- PIMREN_4000_Realizations_Kastela_Bay.zip: Individual stacked realizations.
+- Y_stats_train.npy: Pre-trained model weights ("The Brain").
+- full_bay_input_season.bin: Inference tensors for Kaštela Bay.
 
-**Batch_generation_June21_github.nb**
-This is a Mathematica code for genarating random field realizations using the "Stochastic Scaling Bridge" framework as an example for CHL for June 2021 in situ samples. Also please find the PDF version for the quick preview.
+Components
+1. Stochastic Scaling Bridge (Batch_generation_June21_github.nb)
+A Mathematica implementation for generating high-fidelity random field realizations.
+- Function: Projects centimetric spatial anisotropy and covariance structures onto a decametric (20m) grid.
+- Inputs: Utilizes provided In_situ_samples (June 2021 Chl-$\alpha$ example).
+- Preview: See the PDF version for a quick overview of the code logic.
 
-Before running the code make sure to change measurementFile directory (use provided folder In_situ samples) and ouput directory for storing random realizations.
-
-Figure Considered polygons.png displays the random test field (for random generation) and in situ samples for each season with four UAV HS overpass polygons providing the sentimetric spatial correlative characteristics.
+2. PIMREN Master Model (Master_pimren.py)
+The core Python script for multi-seasonal ensemble inversion.
+- Regime-Dependent Modulator: An 11th-channel input tensor that resolves seasonal non-stationarity by modulating shared convolutional kernels.
+- Physics-Informed Loss: Enforces seasonal physical penalty ratios ($\lambda$) to honor empirically derived bio-optical relationships.
+- Ensemble Uncertainty: A 5-member ensemble provides predictive mean and Coefficient of Variation (CV) maps.
+- Epistemic Quality Constraint: CV maps identify trustworthy physical signals while masking sensor artifacts or meteorological noise. 
