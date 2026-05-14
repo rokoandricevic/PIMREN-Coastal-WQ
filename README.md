@@ -28,4 +28,14 @@ The core Python script for multi-seasonal ensemble inversion.
 - Regime-Dependent Modulator: An 11th-channel input tensor that resolves seasonal non-stationarity by modulating shared convolutional kernels.
 - Physics-Informed Loss: Enforces seasonal physical penalty ratios ($\lambda$) to honor empirically derived bio-optical relationships.
 - Ensemble Uncertainty: A 5-member ensemble provides predictive mean and Coefficient of Variation (CV) maps.
-- Epistemic Quality Constraint: CV maps identify trustworthy physical signals while masking sensor artifacts or meteorological noise. 
+- Epistemic Quality Constraint: CV maps identify trustworthy physical signals while masking sensor artifacts or meteorological noise.
+
+Getting Started
+- Clone the repository:
+git clone https://github.com/rokoandricevic/PIMREN-Coastal-WQ.git
+- Download Data: Download the .bin tensors from the Zenodo DOI and place them in the project root.
+- Run the scaling bridge: Open the Mathematica script to generate realizations (ensure measurementFile points to the In_situ samples folder)
+- Execute Training/Inference: Run Master_pimren.py to train the ensemble and perform inference for Kaštela Bay. Results are automatically stored in the Master_PIMREN_Results directory.
+
+Domain Visualization
+- Refer to Considered polygons.png for a spatial overview of the training test field, in situ sample locations, and the four seasonal UAV hyperspectral polygons used to establish the centimetric spatial characteristics.
