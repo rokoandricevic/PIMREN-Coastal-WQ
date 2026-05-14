@@ -1,5 +1,5 @@
 **Master_pimren.py**
-The provided Python script successfully implements the core mechanics of the PIMREN framework described in the manuscript: A Physics-Informed Multi-Regime Ensemble U-Net Framework for Satellite-Based Water Quality Inversion: Bridging Scale Gaps and Seasonal Non-Stationarity
+The provided Python script successfully implements the core mechanics of the PIMREN framework described in the manuscript: A Physics-Informed Multi-Regime Ensemble U-Net Framework for Satellite-Based Water Quality Inversion: Bridging Scale Gaps and Seasonal Non-Stationarity. The Zenodo DOI 10.5281/zenodo.20184062 contains necessary input files together with 4000 realizations for properly executing the Master_pimren.py script.
 
 11th-Channel Logic: The architecture is designed to accept an 11-channel input tensor, where the final channel serves as the regime-dependent modulator.
 
@@ -10,7 +10,7 @@ Ensemble Integration: The code is structured to facilitate a 5-member ensemble, 
 Epistemic Quality Constraint: By generating CV maps, the script provides the necessary tools to implement the automated quality filter or "blackout" for unreliable spectral states.
 
 **Batch_generation_June21_github.nb**
-This is a Mathematica code for genarating random field realizations using the "Stochastic Scaling Bridge" framework as an example for CHL for June 2021 in situ samples.
+This is a Mathematica code for genarating random field realizations using the "Stochastic Scaling Bridge" framework as an example for CHL for June 2021 in situ samples. Also please find the PDF version for the quick preview.
 
 Before running the code make sure to change measurementFile directory (use provided folder In_situ samples) and ouput directory for storing random realizations.
 
