@@ -12,4 +12,6 @@ Epistemic Quality Constraint: By generating CV maps, the script provides the nec
 **Batch_generation_June21_github.nb**
 This is a Mathematica code for genarating random field realizations using the "Stochastic Scaling Bridge" framework as an example for CHL for June 2021 in situ samples.
 
-Before running the code make sure to change measurementFile directory (use provided folder In_situ samples) and ouput directory for storing random realizations
+Before running the code make sure to change measurementFile directory (use provided folder In_situ samples) and ouput directory for storing random realizations.
+
+Figure Considered polygons.png displays the random test field (for random generation) and in situ samples for each season with four UAV HS overpass polygons providing the sentimetric spatial correlative characteristics.
