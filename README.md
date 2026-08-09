@@ -14,7 +14,6 @@ The Zenodo archive contains:
 - X_PIMREN_Master.bin (input tensor)
 - Y_PIMREN_Master.bin (output tensor)
 - 4 seasonal Sentinel-2 images 
-- 
 
 Components
 1. A folder Multi_Realizations_20m containg the 4000 realizations (1000 for each season)
